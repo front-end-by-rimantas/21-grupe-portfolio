@@ -10,8 +10,4 @@ describe('Validuojamos tinkamo tipo reiksmes', () => {
         expect(age(2010)).toBe('Palauk');
     });
 
-    test('Jei 2010, tai palauk', () => {
-        expect(age(2010)).toBe('palauk');
-    });
-
 })
