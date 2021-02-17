@@ -1,5 +1,6 @@
 :root {
-  --half-gap: 10px;
+  --row-gap: 5px;
+  --half-gap: 5px;
   --gap: calc(2 * var(--half-gap));
   --col: calc((100% - 12 * var(--gap)) / 12);
   --col2: calc(var(--col) + var(--gap) + var(--col));
@@ -30,7 +31,7 @@
 .container-fluid {
   width: 100%;
   float: left;
-  padding: 0 15px;
+  padding: 60px 15px;
 }
 .container > .row,
 .container-fluid > .row {
@@ -41,8 +42,12 @@
 .container > .row > [class*='col-'],
 .container-fluid > .row > [class*='col-'] {
   float: left;
-  background-color: pink;
-  margin: 0 var(--half-gap);
+  margin: var(--row-gap) var(--half-gap);
+}
+
+.container > .row > [class*='col-'] > * + *,
+.container-fluid > .row > [class*='col-'] > * + * {
+  margin-top: 20px;
 }
 
 .visible {
@@ -192,6 +197,10 @@
 }
 
 @media (min-width: 576px) {
+  :root {
+    --row-gap: 8px;
+    --half-gap: 8px;
+  }
   .visible-sm {
     display: inline-block;
   }
@@ -200,7 +209,7 @@
   }
   .container > .row {
     width: 540px;
-    margin: 0 calc(50% - 270px);
+    margin: var(--row-gap) calc(50% - 270px);
   }
   .container > .row > .col-sm-1,
   .container-fluid > .row > .col-sm-1 {
@@ -343,6 +352,10 @@
 }
 
 @media (min-width: 768px) {
+  :root {
+    --row-gap: 10px;
+    --half-gap: 10px;
+  }
   .visible-md {
     display: inline-block;
   }
@@ -351,7 +364,7 @@
   }
   .container > .row {
     width: 720px;
-    margin: 0 calc(50% - 360px);
+    margin: var(--row-gap) calc(50% - 360px);
   }
   .container > .row > .col-md-1,
   .container-fluid > .row > .col-md-1 {
@@ -494,6 +507,10 @@
 }
 
 @media (min-width: 992px) {
+  :root {
+    --row-gap: 15px;
+    --half-gap: 15px;
+  }
   .visible-lg {
     display: inline-block;
   }
@@ -502,7 +519,7 @@
   }
   .container > .row {
     width: 960px;
-    margin: 0 calc(50% - 480px);
+    margin: var(--row-gap) calc(50% - 480px);
   }
   .container > .row > .col-lg-1,
   .container-fluid > .row > .col-lg-1 {
@@ -645,6 +662,10 @@
 }
 
 @media (min-width: 1200px) {
+  :root {
+    --row-gap: 20px;
+    --half-gap: 20px;
+  }
   .visible-xl {
     display: inline-block;
   }
@@ -653,7 +674,7 @@
   }
   .container > .row {
     width: 1140px;
-    margin: 0 calc(50% - 570px);
+    margin: var(--row-gap) calc(50% - 570px);
   }
   .container > .row > .col-xl-1,
   .container-fluid > .row > .col-xl-1 {
