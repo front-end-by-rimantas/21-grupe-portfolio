@@ -45,11 +45,6 @@
   margin: var(--row-gap) var(--half-gap);
 }
 
-.container > .row > [class*='col-'] > * + *,
-.container-fluid > .row > [class*='col-'] > * + * {
-  margin-top: 20px;
-}
-
 .visible {
   display: inline-block;
 }
