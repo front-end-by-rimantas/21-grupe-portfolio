@@ -1,7 +1,29 @@
 function hobbies(data) {
     // validation
-    if (!data) {
-        return false;
+    if (data === undefined) {
+        return 'Neduoti parametrai';
+    }
+    if (typeof data !== 'object' || Array.isArray(data)) {
+        return 'Duotas netinkamo tipo parametras';
+    }
+
+    const allowedKeys = ['selector', 'list'];
+    const keys = Object.keys(data);
+    if (keys.length !== allowedKeys.length) {
+        return 'Parametre yra netinkamas raktazodziu kiekis';
+    }
+    for (const key of keys) {
+        if (!allowedKeys.includes(key)) {
+            return 'Parametro struktura neteisinga';
+        }
+    }
+
+    if (typeof data.selector !== 'string' || data.selector === '') {
+        return 'Selectorius netinkamo formato';
+    }
+
+    if (!Array.isArray(data.list) || data.list.length === 0) {
+        return 'List netinkamo formato';
     }
 
     // logic
@@ -10,16 +32,32 @@ function hobbies(data) {
 
     let HTML = '';
     for (const item of list) {
-        HTML += `<div class="col-12 col-md-4 col-lg-3 hobbie">
-                    <div class="icon">${item.icon}</div>
-                    <p class="text">${item.text}</p>
-                </div>`;
+        if (
+            typeof item === 'object' &&
+            !Array.isArray(item) &&
+            item.icon &&
+            typeof item.icon === 'string' &&
+            item.icon !== '' &&
+            item.text &&
+            typeof item.text === 'string' &&
+            item.text !== ''
+        ) {
+            HTML += `<div class="col-12 col-md-4 col-lg-3 hobbie">
+                        <div class="icon">${item.icon}</div>
+                        <p class="text">${item.text}</p>
+                    </div>`;
+        }
     }
 
     // post logic validation
+    if (HTML === '') {
+        return 'Parametruose nebuvo jokios naudingos/teisingos informacijos';
+    }
 
     // result return
     DOM.innerHTML = HTML;
+
+    return true;
 }
 
-export { hobbies }
+export { hobbies };
