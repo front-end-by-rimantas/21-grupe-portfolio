@@ -1,9 +1,17 @@
 {
+    "env": {
+        "jest": true,
+        "browser": true
+    },
     "extends": [
-        "airbnb",
+        "airbnb-base",
         "prettier",
         "plugin:node/recommended"
     ],
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": true
+    },
     "plugins": [
         "prettier"
     ],
@@ -14,6 +22,7 @@
                 "endOfLine": "auto"
             }
         ],
+        "node/no-unsupported-features/es-syntax": "off",
         "no-unused-vars": "warn",
         "no-console": "off",
         "func-names": "off",
@@ -26,17 +35,11 @@
                 "allowForLoopAfterthoughts": true
             }
         ],
-        "node/no-unpublished-require": [
-            "error",
-            {
-                "allowModules": [],
-                "convertPath": null,
-                "tryExtensions": [
-                    ".js",
-                    ".json",
-                    ".node"
-                ]
-            }
-        ]
+        "quotes": ["error", "single"],
+        "indent": "off",
+        "no-restricted-syntax": "off",
+        "import/prefer-default-export": "off",
+        "import/extensions": "off",
+        "no-constant-condition": "error"
     }
 }
