@@ -11,6 +11,9 @@ import { hobbiesData } from './data/hobbiesData.js';
 /* resume */
 /* expertise */
 /* portfolio */
+import { Gallery } from './components/gallery/Gallery.js';
+import { portfolioData } from './data/portfolioData.js';
+
 /* testimonials */
 /* blog */
 /* freelance */
@@ -29,6 +32,9 @@ hobbies(hobbiesData);
 /* resume */
 /* expertise */
 /* portfolio */
+const portfolioGallery = new Gallery(portfolioData);
+portfolioGallery.init();
+
 /* testimonials */
 /* blog */
 /* freelance */
