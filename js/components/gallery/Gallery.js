@@ -1,8 +1,9 @@
 class Gallery {
-    constructor(params) {
+    constructor(params, renderingFunction) {
         this.selector = params.selector;
         this.imgPath = params.imgPath;
         this.list = params.list;
+        this.renderingFunction = renderingFunction;
 
         this.DOM = null;
         this.filterDOM = null;
@@ -153,21 +154,8 @@ class Gallery {
         let HTML = '';
 
         for (const item of this.list) {
-            const validTags = item.tags.filter(
-                (tag) => typeof tag === 'string' && tag !== ''
-            );
-
-            const img = this.imgPath + item.photo;
-
             HTML += `<div class="col-12 col-sm-6 col-md-4 item">
-                        <img src="${img}" alt="Portfolio image">
-                        <div class="layer">
-                            <i class="fa fa-camera"></i>
-                        </div>
-                        <div class="texts">
-                            <div class="title">${item.title}</div>
-                            <div class="tags">${validTags.join(', ')}</div>
-                        </div>
+                        ${this.renderingFunction(item, this.imgPath)}
                     </div>`;
         }
 

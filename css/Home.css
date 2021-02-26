@@ -8,6 +8,8 @@
 /* components */
 @import './components/gallery.css';
 @import './components/hobbies.css';
+@import './components/portfolioItem.css';
+@import './components/shopItem.css';
 
 /* CUSTOM HOME PAGE CSS */
 /* header */
