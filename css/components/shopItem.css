@@ -1,0 +1,72 @@
+.shopItem {
+  overflow: hidden;
+  height: 250px;
+  position: relative;
+}
+.shopItem > img {
+  display: inline-block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(0deg);
+  transition: all 1s;
+}
+.shopItem > .layer {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #0000;
+  transition: all 1s;
+}
+.shopItem > .layer > .fa {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #3c4858;
+  color: #fff;
+  opacity: 0;
+  transition: all 1s;
+}
+.shopItem > .texts {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  text-align: center;
+  padding: 15px;
+}
+.shopItem > .texts > .title {
+  font-size: 24px;
+}
+.shopItem > .texts > .price {
+  font-size: 34px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.shopItem:hover > .layer {
+  background-color: #0005;
+}
+.shopItem:hover > .layer > .fa {
+  opacity: 1;
+}
+.shopItem:hover > .layer > .fa:hover {
+  background-color: #fff;
+  color: #3c4858;
+}
+.shopItem:hover > img {
+  width: 120%;
+  transform: translate(-50%, -10%) rotate(20deg);
+}

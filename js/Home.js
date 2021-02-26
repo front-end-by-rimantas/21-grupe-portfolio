@@ -11,6 +11,14 @@ import { hobbiesData } from './data/hobbiesData.js';
 /* resume */
 /* expertise */
 /* portfolio */
+import { Gallery } from './components/gallery/Gallery.js';
+import { portfolioData } from './data/portfolioData.js';
+import { portfolioItem } from './components/portfolio/portfolioItem.js';
+
+/* shop */
+import { shopData } from './data/shopData.js';
+import { shopItem } from './components/shop/shopItem.js';
+
 /* testimonials */
 /* blog */
 /* freelance */
@@ -29,6 +37,13 @@ hobbies(hobbiesData);
 /* resume */
 /* expertise */
 /* portfolio */
+const portfolioGallery = new Gallery(portfolioData, portfolioItem);
+portfolioGallery.init();
+
+/* shop */
+const shopGallery = new Gallery(shopData, shopItem);
+shopGallery.init();
+
 /* testimonials */
 /* blog */
 /* freelance */
