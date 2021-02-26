@@ -31,6 +31,9 @@ class Gallery {
         // filter out invalid list objects
         this.filterOutInvalidListObjects();
 
+        // convert all tags to lowercase
+        this.convertAllTagsToLowerCase();
+
         // render content
         this.render();
         this.addEvents();
@@ -84,6 +87,12 @@ class Gallery {
         }
 
         this.list = validData;
+    }
+
+    convertAllTagsToLowerCase() {
+        for (const item of this.list) {
+            item.tags = item.tags.map((tag) => tag.toLowerCase());
+        }
     }
 
     isValidItemTagArray(tagList) {
@@ -171,14 +180,27 @@ class Gallery {
             const tag = this.tags[i];
 
             tag.addEventListener('click', () => {
-                this.tags[this.activeTag].classList.remove('active');
-                tag.classList.add('active');
-                this.activeTag = i;
-
-                console.log('memory:', this.uniqueTags[i]);
-                console.log('html:', tag.innerText);
+                this.updateGallery(tag, i);
             });
         }
+    }
+
+    updateGallery(tag, i) {
+        this.tags[this.activeTag].classList.remove('active');
+        tag.classList.add('active');
+        this.activeTag = i;
+
+        const tagName = this.uniqueTags[i];
+
+        this.list.forEach((item, index) => {
+            if (tagName === 'All') {
+                this.items[index].classList.remove('hidden');
+            } else if (item.tags.includes(tagName)) {
+                this.items[index].classList.remove('hidden');
+            } else {
+                this.items[index].classList.add('hidden');
+            }
+        });
     }
 }
 
