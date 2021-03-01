@@ -1,5 +1,7 @@
 // IMPORTS
 /* header */
+import header from './components/header/header.js';
+
 /* hero */
 /* about me */
 /* hobbies */
@@ -27,6 +29,8 @@ import { shopItem } from './components/shop/shopItem.js';
 
 // EXECUTION
 /* header */
+header();
+
 /* hero */
 /* about me */
 /* hobbies */
