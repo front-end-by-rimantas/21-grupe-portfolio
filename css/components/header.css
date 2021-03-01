@@ -1,0 +1,41 @@
+header.container {
+  padding-top: 0;
+  padding-bottom: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  transition: all 0.3s;
+}
+header.container > .row {
+  transition: all 0.3s;
+}
+
+main > section:first-of-type {
+  padding-top: 140px;
+}
+header .col-12 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+header img.logo {
+  height: 18px;
+}
+header nav {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+header nav > a {
+}
+
+header.scroll {
+  background-color: #fff;
+  box-shadow: 0 15px 25px #0002;
+}
+header.scroll > .row {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
